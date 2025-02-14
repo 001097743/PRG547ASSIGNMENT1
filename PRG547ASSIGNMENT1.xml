@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PRG547ASSIGNMENT1</name>
+    </assembly>
+    <members>
+        <member name="P:PRG547ASSIGNMENT1.Student.StudentID">
+            <summary>
+            Getters and setters
+            https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties
+            </summary>
+        </member>
+        <member name="M:PRG547ASSIGNMENT1.Student.#ctor(System.String,System.String,System.String)">
+            <summary>
+            All arg constructor
+            </summary>
+            <param name="studentID">Student ID</param>
+            <param name="program">Program</param>
+            <param name="dateRegistered">Date Registered</param>
+        </member>
+        <member name="M:PRG547ASSIGNMENT1.Student.#ctor">
+            <summary>
+            No arg constructor
+            </summary>
+        </member>
+        <member name="M:PRG547ASSIGNMENT1.Student.ToString">
+            <summary>
+            Override ToString()
+            </summary>
+            <returns>String</returns>
+        </member>
+        <member name="M:PRG547ASSIGNMENT1.Student.Equals(System.Object)">
+            <summary>
+            Override Equals()
+            https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/override
+            </summary>
+            <param name="obj"></param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:PRG547ASSIGNMENT1.Student.op_Equality(PRG547ASSIGNMENT1.Student,PRG547ASSIGNMENT1.Student)">
+            <summary>
+            Overload operators ==, !=
+            https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/operator-overloading
+            </summary>
+            <param name="a">Object for </param>
+            <param name="b"></param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:PRG547ASSIGNMENT1.Student.GetHashCode">
+            <summary>
+            Override GetHashCode()
+            </summary>
+            <returns>int</returns>
+        </member>
+    </members>
+</doc>
