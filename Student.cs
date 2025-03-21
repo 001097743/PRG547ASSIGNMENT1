@@ -5,10 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Runtime.Remoting.Messaging;
+using System.Threading;
+using System.Security.Cryptography.X509Certificates;
+
+#pragma warning disable
 
 namespace PRG547ASSIGNMENT1
 {
-    internal class Student
+    internal class Student : Person
     {
         const string DEF_STUDENT_ID = "Not provided";
         const string DEF_PROGRAM = "Not provided";
@@ -21,6 +25,8 @@ namespace PRG547ASSIGNMENT1
         public string StudentID { get; set; }
         public string Program { get; set; }
         public string DateRegistered { get; set; }
+        public Address StudentAddress { get; set; }
+        public Enrollment Enrollment { get; set; }
 
         /// <summary>
         /// All arg constructor
@@ -28,28 +34,130 @@ namespace PRG547ASSIGNMENT1
         /// <param name="studentID">Student ID</param>
         /// <param name="program">Program</param>
         /// <param name="dateRegistered">Date Registered</param>
-        public Student(string studentID, string program, string dateRegistered)
+        /// <param name="name">Name</param>
+        /// <param name="email">Email Address</param>
+        /// <param name="phoneNumber">Phone Number</param>
+        /// <param name="address">Person Address</param>
+        /// <param name="enrollment">Enrollment</param>
+        public Student(
+            string studentID,
+            string program,
+            string dateRegistered,
+            string name,
+            string email,
+            string phoneNumber,
+            Address address,
+            Enrollment enrollment
+            ) : base(name, email, phoneNumber, address)
         {
             StudentID = studentID;
             Program = program;
             DateRegistered = dateRegistered;
+            Enrollment = enrollment;
+            base.Name = name;
+            base.Email = email;
+            base.PhoneNumber = phoneNumber;
+            base.Address = address;
         }
+
         /// <summary>
-        /// No arg constructor
+        /// All arg constructor
         /// </summary>
-        public Student() : this(DEF_STUDENT_ID, DEF_PROGRAM, DEF_DATE_REGISTERED) { }
+        /// <param name="studentID">Student ID</param>
+        /// <param name="program">Program</param>
+        /// <param name="dateRegistered">Date Registered</param>
+        /// <param name="name">Name</param>
+        /// <param name="email">Email Address</param>
+        /// <param name="phoneNumber">Phone Number</param>
+        public Student(
+            string studentID,
+            string program,
+            string dateRegistered,
+            string name,
+            string email,
+            string phoneNumber
+            ) : base(name, email, phoneNumber)
+        {
+            StudentID = studentID;
+            Program = program;
+            DateRegistered = dateRegistered;
+            base.Name = name;
+            base.Email = email;
+            base.PhoneNumber = phoneNumber;
+        }
+
+        /// <summary>
+        /// Partial arg constructor
+        /// </summary>
+        /// <param name="name">Name</param>
+        /// <param name="email">Email Address</param>
+        /// <param name="phoneNumber">Phone Number</param>
+        public Student(string name, string email, string phoneNumber) : base(name, email, phoneNumber)
+        {
+            StudentID = DEF_STUDENT_ID;
+            Program = DEF_PROGRAM;
+            DateRegistered = DEF_DATE_REGISTERED;
+            base.Name = name;
+            base.Email = email;
+            base.PhoneNumber = phoneNumber;
+        }
+
+        /// <summary>
+        /// Partial arg constructor
+        /// </summary>
+        /// <param name="name">Name</param>
+        /// <param name="email">Email Address</param>
+        /// <param name="phoneNumber">Phone Number</param>
+        public Student(string name, string email, string phoneNumber, Address address) : base(name, email, phoneNumber, address)
+        {
+            StudentID = DEF_STUDENT_ID;
+            Program = DEF_PROGRAM;
+            DateRegistered = DEF_DATE_REGISTERED;
+            base.Name = name;
+            base.Email = email;
+            base.PhoneNumber = phoneNumber;
+            base.Address = address;
+        }
+
+        /// <summary>
+        /// Partial arg constructor
+        /// </summary>
+        /// <param name="name">Name</param>
+        /// <param name="email">Email Address</param>
+        /// <param name="phoneNumber">Phone Number</param>
+        /// <param name="enrollment">Enrollment</param>
+        public Student(string name, string email, string phoneNumber, Enrollment enrollment) : base(name, email, phoneNumber)
+        {
+            StudentID = DEF_STUDENT_ID;
+            Program = DEF_PROGRAM;
+            DateRegistered = DEF_DATE_REGISTERED;
+            base.Name = name;
+            base.Email = email;
+            base.PhoneNumber = phoneNumber;
+            Enrollment = enrollment;
+        }
 
         /// <summary>
         /// Override ToString()
         /// </summary>
         /// <returns>String</returns>
-        public override string ToString() { return $"Student ID: {StudentID};\nProgram: {Program};\nDate Registered: {DateRegistered};"; }
+        public override string ToString()
+        {
+            return $"\n" +
+                $"[Student]\n" +
+                $"Student ID: {StudentID}\n" +
+                $"Program: {Program}\n" +
+                $"Date Registered: {DateRegistered};\n" +
+                $"{base.ToString()}\n" +
+                $"{Enrollment}\n" +
+                $"";
+        }
 
         /// <summary>
-        /// Override Equals()
+        /// Override virtual Equals()
         /// https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/override
         /// </summary>
-        /// <param name="obj"></param>
+        /// <param name="obj">Object for comparing</param>
         /// <returns>bool</returns>
         public override bool Equals(object obj)
         {
@@ -60,24 +168,48 @@ namespace PRG547ASSIGNMENT1
         }
 
         /// <summary>
-        /// Overload operators ==, !=
+        /// Override static Equals()
+        /// </summary>
+        /// <param name="a">Object for comparing</param>
+        /// <param name="b">Object for comparing</param>
+        /// <returns>bool</returns>
+        public static bool Equals(object a, object b)
+        {
+            if (a == b) return true;
+            return !(a == null || b == null) && a.Equals(b);
+        }
+
+        /// <summary>
+        /// Overload operator ==
         /// https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/operator-overloading
         /// </summary>
-        /// <param name="a">Object for </param>
+        /// <param name="a">Object for comparing</param>
+        /// <param name="b">Object for comparing</param>
+        /// <returns>bool</returns>
+        public static bool operator ==(Student a, Student b)
+        {
+            return a.Equals(b);
+        }
+
+        /// <summary>
+        /// Overload operator !=
+        /// </summary>
+        /// <param name="a"></param>
         /// <param name="b"></param>
         /// <returns>bool</returns>
-        public static bool operator ==(Student a, Student b) { return a.Equals(b); }
         public static bool operator !=(Student a, Student b)
         {
             return !(a == b);
-            // same??? !a.Equals(b);
         }
 
         /// <summary>
         /// Override GetHashCode()
         /// </summary>
         /// <returns>int</returns>
-        public override int GetHashCode() { return StudentID.GetHashCode(); }
+        public override int GetHashCode()
+        {
+            return StudentID.GetHashCode();
+        }
 
     }
 }

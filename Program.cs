@@ -13,82 +13,134 @@ namespace PRG547ASSIGNMENT1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("[testing Student]");
+            C.Title("[testing getters, getters, ToString, GetHashCode]");
 
-            Console.WriteLine();
-            Console.WriteLine("[testing getters, getters, ToString, GetHashCode]");
+            C.Title("> create object: studentNoInfo");
+            Student studentNoInfo = new Student("Person A", "pa@gmail.com", "0400 000 001");
 
-            Console.WriteLine();
-            Console.WriteLine("> create object: studentNoArg");
-            Student studentNoArg = new Student();
+            C.Title("> ToString()");
+            C.Expected("" +
+                "[Person]\n" +
+                "Name: Person A\n" +
+                "Email: pa@gmail.com\n" +
+                "Phone Number: 0400 000 001\n" +
+                "\n" +
+                "All others: Not provided" +
+                "");
+            C.Actual(studentNoInfo.ToString());
 
-            Console.WriteLine();
-            Console.WriteLine("> ToString()");
-            Console.WriteLine(studentNoArg.ToString());
+            C.Next();
 
-            Console.WriteLine();
-            Console.WriteLine("> getters");
-            Console.WriteLine($"StudentID: {studentNoArg.StudentID}");
-            Console.WriteLine($"Program: {studentNoArg.Program}");
-            Console.WriteLine($"DateRegister: {studentNoArg.DateRegistered}");
-            Console.WriteLine($"GetHashCode: {studentNoArg.GetHashCode()}");
+            C.Title("> getters");
+            C.Expected("Same as studentNoInfo. Nothing provided except a Person");
+            C.Actual($"" +
+                $"[Student]\n" +
+                $"StudentID: {studentNoInfo.StudentID}\n" +
+                $"Program: {studentNoInfo.Program}\n" +
+                $"DateRegister: {studentNoInfo.DateRegistered}\n" +
+                $"GetHashCode: {studentNoInfo.GetHashCode()}\n" +
+                $"\n" +
+                $"[Person]\n" +
+                $"Name: {studentNoInfo.Name}\n" +
+                $"Email: {studentNoInfo.Email}\n" +
+                $"Phone Number: {studentNoInfo.PhoneNumber}" +
+                $"");
 
-            Console.WriteLine();
-            Console.WriteLine("> setters: set studentNoArg with (The Student, The Program, The Date)");
-            studentNoArg.StudentID = "The Student";
-            studentNoArg.Program = "The Program";
-            studentNoArg.DateRegistered = "The Date";
-            Console.WriteLine($"StudentID: {studentNoArg.StudentID}");
-            Console.WriteLine($"Program: {studentNoArg.Program}");
-            Console.WriteLine($"DateRegister: {studentNoArg.DateRegistered}");
-            Console.WriteLine($"GetHashCode: {studentNoArg.GetHashCode()}");
+            C.Next();
 
-            Console.ReadKey();
-            Console.Clear();
-            Console.WriteLine();
+            C.Title("> setters: set studentNoInfo with (The Student, The Program, The Date)");
+            C.Expected("" +
+                "[Student]\n" +
+                "StudentID: The Student\n" +
+                "Program: The Program\n" +
+                "Date Register: The Date\n" +
+                "\n" +
+                "All others: Not provided" +
+                "");
 
-            Console.WriteLine("> now the studentNoArg is {The Student, The Program, The Date}");
-            Console.WriteLine();
-            Console.WriteLine("> create object: studentAllArg (The Other Student, The Other Program, The Other Date)");
-            Console.WriteLine();
-            Student studentAllArg = new Student("The Other Student", "The Other Program", "The Other Date");
-            Console.WriteLine(studentAllArg.ToString());
+            studentNoInfo.StudentID = "The Student";
+            studentNoInfo.Program = "The Program";
+            studentNoInfo.DateRegistered = "The Date";
+            C.Actual($"" +
+                $"[Student]\n" +
+                $"StudentID: {studentNoInfo.StudentID}\n" +
+                $"Program: {studentNoInfo.Program}\n" +
+                $"DateRegister: {studentNoInfo.DateRegistered}" +
+                $"");
 
-            Console.WriteLine();
-            Console.WriteLine("> create object same as ALL ARG: studentAllArgSame (The Other Student, The Other Program, The Other Date)");
-            Console.WriteLine();
-            Student studentAllArgSame = new Student("The Other Student", "The Other Program", "The Other Date");
-            Console.WriteLine(studentAllArgSame.ToString());
+            C.Next();
 
-            Console.ReadKey();
-            Console.Clear();
-            Console.WriteLine();
+            C.Title("> now the studentNoInfo is {The Student, The Program, The Date}");
+            C.Title("> create object: studentWithInfo (The Other Student, The Other Program, The Other Date)");
 
-            Console.WriteLine("[testing Equals, ==, !=]");
+            Student studentWithInfo = new Student(
+                "The Other Student",
+                "The Other Program",
+                "The Other Date",
+                "Person B",
+                "pb@gmail.com",
+                "0400 000 002"
+                );
 
-            Console.WriteLine();
-            Console.WriteLine("> studentAllArg should be the same as studentAllArgSame");
-            Console.WriteLine();
-            Console.WriteLine($"> studentAllArg Equals studentAllArgSame (TRUE): {studentAllArg.Equals(studentAllArgSame)}");
-            Console.WriteLine($"> studentAllArg == studentAllArgSame (TRUE): {studentAllArg == studentAllArgSame}");
-            Console.WriteLine($"> studentAllArg != studentAllArgSame (FALSE): {studentAllArg != studentAllArgSame}");
+            C.Expected("" +
+                "[Student]\n" +
+                "StudentID: The Other Student\n" +
+                "Program: The Other Program\n" +
+                "Date Register: The Other Date\n" +
+                "[Person]\n" +
+                "Name: Person B\n" +
+                "Email: pb@gmail.com\n" +
+                "Phone Number: 0400 000 002\n" +
+                "\n" +
+                "All others: Not provided" +
+                "");
+            C.Actual(studentWithInfo.ToString());
 
-            Console.WriteLine();
-            Console.WriteLine("> studentNoArg should NOT be the same as studentAllArg");
-            Console.WriteLine();
-            Console.WriteLine($"> studentNoArg Equals studentAllArg (FALSE): {studentNoArg.Equals(studentAllArg)}");
-            Console.WriteLine($"> studentNoArg == studentAllArg (FALSE): {studentNoArg == studentAllArg}");
-            Console.WriteLine($"> studentNoArg != studentAllArg (TRUE): {studentNoArg != studentAllArg}");
+            C.Next();
+
+            C.Title("> create a same object studentWithInfoSame (The Other Student, The Other Program, The Other Date)");
+            Student studentWithInfoSame = new Student("The Other Student", "The Other Program", "The Other Date", "Person B", "pb@gmail.com", "0400 000 002");
+            C.Expected("" +
+                "[Student]\n" +
+                "StudentID: The Other Student\n" +
+                "Program: The Other Program\n" +
+                "Date Register: The Other Date\n" +
+                "[Person]\n" +
+                "Name: Person B\n" +
+                "Email: pb@gmail.com\n" +
+                "Phone Number: 0400 000 002\n" +
+                "\n" +
+                "All others: Not provided" +
+                "");
+            C.Actual(studentWithInfoSame.ToString());
+
+            C.Next();
+
+            C.Title("[testing Equals, ==, !=]");
+            C.Title("> studentWithInfo should be the same as studentWithInfoSame");
+
+            C.Expected("studentWithInfo Equals studentWithInfoSame (TRUE)");
+            C.Actual((studentWithInfo.Equals(studentWithInfoSame)).ToString());
+
+            C.Expected("studentWithInfo == studentWithInfoSame(TRUE)");
+            C.Actual((studentWithInfo == studentWithInfoSame).ToString());
+
+            C.Expected("studentWithInfo != studentWithInfoSame (FALSE)");
+            C.Actual((studentWithInfo != studentWithInfoSame).ToString());
+
+            C.Title("studentNoInfo should NOT be the same as studentWithInfo");
+
+            C.Expected("studentNoInfo Equals studentWithInfo (FALSE)");
+            C.Actual((studentNoInfo.Equals(studentWithInfo)).ToString());
+
+            C.Expected("studentNoInfo == studentWithInfo (FALSE)");
+            C.Actual((studentNoInfo == studentWithInfo).ToString());
+
+            C.Expected("studentNoInfo != studentWithInfo (TRUE)");
+            C.Actual((studentNoInfo != studentWithInfo).ToString());
 
 
-
-
-
-
-
-
-            Console.WriteLine();
-            Console.ReadKey();
+            C.Next();
         }
     }
 }
