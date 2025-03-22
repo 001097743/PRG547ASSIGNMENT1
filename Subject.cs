@@ -29,7 +29,7 @@ namespace PRG547ASSIGNMENT1
             return $"\n" +
                 $"[Subject]\n" +
                 $"Subject Code: {SubjectCode}\n" +
-                $"Subject Name: {SubjectName};\n" +
+                $"Subject Name: {SubjectName}\n" +
                 $"Cost: {Cost}\n" +
                 $"";
         }

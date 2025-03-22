@@ -161,6 +161,42 @@ namespace PRG547ASSIGNMENT1
             C.Expected("studentNoInfo != studentWithInfo (TRUE)");
             C.Actual((studentNoInfo != studentWithInfo).ToString());
 
+            C.Next();
+
+            C.Title("> [Testing Student with Enrollment and Address]");
+            Address address = new Address("Street Num testing", "Street Name testing", "Suburb testing", "Postcode testing", "State testing");
+            Subject subject = new Subject("Subject Code testing", "Subject Name testing", 123);
+            Enrollment enrollment = new Enrollment("Date Enrolled testing", "Grade testing", "Semester testing", subject);
+            Student student = new Student(
+                "Student ID testing",
+                "Program testing",
+                "Date Registered testing",
+                "Name testing",
+                "Email_testing@gmail.com",
+                "Phone Number testing",
+                address,
+                enrollment
+                );
+            C.Expected($"" +
+                "[Student]\n" +
+                "StudentID: Student ID testing\n" +
+                "Program: Program testing\n" +
+                "Date Register: Date Registered testing\n" +
+                "[Person]\n" +
+                "Name: Name testing\n" +
+                "Email: Email_testing@gmail.com\n" +
+                "Phone Number: Phone Number testing\n" +
+                "[Enrollment]\n" +
+                "Date Enrolled: Date Enrolled testing\n" +
+                "Grade: Grade testing\n" +
+                "Semester: Semester testing\n" +
+                "[Subject]\n" +
+                "Subject Code: Subject Code testing\n" +
+                "Subjcet Name: Subject Name testing\n" +
+                "Cost: 123" +
+                "\n"
+                );
+            C.Actual(student.ToString());
 
             C.Next();
         }
