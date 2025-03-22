@@ -4,6 +4,23 @@
         <name>PRG547ASSIGNMENT1</name>
     </assembly>
     <members>
+        <member name="M:PRG547ASSIGNMENT1.Person.#ctor(System.String,System.String,System.String,PRG547ASSIGNMENT1.Address)">
+            <summary>
+            All Arg Person
+            </summary>
+            <param name="name">Name</param>
+            <param name="email">Email</param>
+            <param name="phoneNumber">Phone Number</param>
+            <param name="address">Address Class</param>
+        </member>
+        <member name="M:PRG547ASSIGNMENT1.Person.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Partial Arg Person
+            </summary>
+            <param name="name">Name</param>
+            <param name="email">Email</param>
+            <param name="phoneNumber">Phone Number</param>
+        </member>
         <member name="P:PRG547ASSIGNMENT1.Student.StudentID">
             <summary>
             Getters and setters
@@ -12,7 +29,7 @@
         </member>
         <member name="M:PRG547ASSIGNMENT1.Student.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,PRG547ASSIGNMENT1.Address,PRG547ASSIGNMENT1.Enrollment)">
             <summary>
-            All arg constructor
+            All Arg Student
             </summary>
             <param name="studentID">Student ID</param>
             <param name="program">Program</param>
@@ -20,44 +37,48 @@
             <param name="name">Name</param>
             <param name="email">Email Address</param>
             <param name="phoneNumber">Phone Number</param>
-            <param name="address">Person Address</param>
-            <param name="enrollment">Enrollment</param>
-        </member>
-        <member name="M:PRG547ASSIGNMENT1.Student.#ctor(System.String,System.String,System.String,System.String,System.String,System.String)">
-            <summary>
-            All arg constructor
-            </summary>
-            <param name="studentID">Student ID</param>
-            <param name="program">Program</param>
-            <param name="dateRegistered">Date Registered</param>
-            <param name="name">Name</param>
-            <param name="email">Email Address</param>
-            <param name="phoneNumber">Phone Number</param>
+            <param name="address">Address Class</param>
+            <param name="enrollment">Enrollment Class</param>
         </member>
         <member name="M:PRG547ASSIGNMENT1.Student.#ctor(System.String,System.String,System.String)">
             <summary>
-            Partial arg constructor
+            Partial Arg Student - Person only
             </summary>
             <param name="name">Name</param>
             <param name="email">Email Address</param>
             <param name="phoneNumber">Phone Number</param>
         </member>
-        <member name="M:PRG547ASSIGNMENT1.Student.#ctor(System.String,System.String,System.String,PRG547ASSIGNMENT1.Address)">
+        <member name="M:PRG547ASSIGNMENT1.Student.#ctor(System.String,System.String,System.String,System.String,System.String,System.String)">
             <summary>
-            Partial arg constructor
+            Partial Arg Student - Person and student info
             </summary>
             <param name="name">Name</param>
             <param name="email">Email Address</param>
             <param name="phoneNumber">Phone Number</param>
         </member>
-        <member name="M:PRG547ASSIGNMENT1.Student.#ctor(System.String,System.String,System.String,PRG547ASSIGNMENT1.Enrollment)">
+        <member name="M:PRG547ASSIGNMENT1.Student.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,PRG547ASSIGNMENT1.Enrollment)">
             <summary>
-            Partial arg constructor
+            Partial Arg Student - Person and student info and enrollment
             </summary>
+            <param name="studentID">Student ID</param>
+            <param name="program">Program</param>
+            <param name="dateRegistered">Date Registered</param>
             <param name="name">Name</param>
             <param name="email">Email Address</param>
             <param name="phoneNumber">Phone Number</param>
-            <param name="enrollment">Enrollment</param>
+            <param name="enrollment">Enrollment Class</param>
+        </member>
+        <member name="M:PRG547ASSIGNMENT1.Student.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,PRG547ASSIGNMENT1.Address)">
+            <summary>
+            Partial Arg Student - Person and student info and address
+            </summary>
+            <param name="studentID">Student ID</param>
+            <param name="program">Program</param>
+            <param name="dateRegistered">Date Registered</param>
+            <param name="name">Name</param>
+            <param name="email">Email Address</param>
+            <param name="phoneNumber">Phone Number</param>
+            <param name="address">Address Class</param>
         </member>
         <member name="M:PRG547ASSIGNMENT1.Student.ToString">
             <summary>

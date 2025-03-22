@@ -13,26 +13,26 @@ namespace PRG547ASSIGNMENT1
     {
         static void Main(string[] args)
         {
+
             C.Title("[testing getters, getters, ToString, GetHashCode]");
 
-            C.Title("> create object: studentNoInfo");
-            Student studentNoInfo = new Student("Person A", "pa@gmail.com", "0400 000 001");
+            C.Title("> create object: studentNoInfo: Person 1, p1@gmail.com, 0400 000 001");
+            Student studentNoInfo = new Student("Person 1", "p1@gmail.com", "0400 000 001");
 
             C.Title("> ToString()");
             C.Expected("" +
                 "[Person]\n" +
-                "Name: Person A\n" +
-                "Email: pa@gmail.com\n" +
+                "Name: Person 1\n" +
+                "Email: p1@gmail.com\n" +
                 "Phone Number: 0400 000 001\n" +
                 "\n" +
-                "All others: Not provided" +
                 "");
             C.Actual(studentNoInfo.ToString());
 
             C.Next();
 
             C.Title("> getters");
-            C.Expected("Same as studentNoInfo. Nothing provided except a Person");
+            C.Expected("Same as studentNoInfo: Person 1, p1@gmail.com, 0400 000 001");
             C.Actual($"" +
                 $"[Student]\n" +
                 $"StudentID: {studentNoInfo.StudentID}\n" +
@@ -48,69 +48,91 @@ namespace PRG547ASSIGNMENT1
 
             C.Next();
 
-            C.Title("> setters: set studentNoInfo with (The Student, The Program, The Date)");
+            C.Title("> setters: set studentNoInfo with: Person 1 mod, p1mod@gmail.com, 0400 111 001");
+            C.Title("> setters: set studentNoInfo with: ID 1, Program 1, Date 1");
             C.Expected("" +
                 "[Student]\n" +
-                "StudentID: The Student\n" +
-                "Program: The Program\n" +
-                "Date Register: The Date\n" +
+                "StudentID: ID 1\n" +
+                "Program: Program 1\n" +
+                "Date Register: Date 1\n" +
+                "[Person]\n" +
+                "Name: Person 1 mod\n" +
+                "Email: p1mod@gmail.com\n" +
+                "Phone Number: 0400 111 001\n" +
                 "\n" +
-                "All others: Not provided" +
                 "");
 
-            studentNoInfo.StudentID = "The Student";
-            studentNoInfo.Program = "The Program";
-            studentNoInfo.DateRegistered = "The Date";
-            C.Actual($"" +
+            studentNoInfo.StudentID = "ID 1";
+            studentNoInfo.Program = "Program 1";
+            studentNoInfo.DateRegistered = "Date 1";
+            studentNoInfo.Name = "Person 1 mod";
+            studentNoInfo.Email = "Person 1 mod@gmail.com";
+            studentNoInfo.PhoneNumber = "0400 111 001";
+            C.Actual(
+                $"\n" +
                 $"[Student]\n" +
                 $"StudentID: {studentNoInfo.StudentID}\n" +
                 $"Program: {studentNoInfo.Program}\n" +
-                $"DateRegister: {studentNoInfo.DateRegistered}" +
-                $"");
+                $"DateRegister: {studentNoInfo.DateRegistered}\n" +
+                $"[Person]\n" +
+                $"Name: {studentNoInfo.Name}\n" +
+                $"Email: {studentNoInfo.Email}\n" +
+                $"Phone Number: {studentNoInfo.PhoneNumber}\n" +
+                $""
+                );
 
             C.Next();
 
-            C.Title("> now the studentNoInfo is {The Student, The Program, The Date}");
-            C.Title("> create object: studentWithInfo (The Other Student, The Other Program, The Other Date)");
+            C.Title("> Now studentNoInfo is: Person 1 mod, p1mod@gmail.com, 0400 111 001");
+            C.Title("> With: ID 1, Program 1, Date 1");
+
+            C.Title("> create object: studentWithInfo: ID 2, Program 2, Date 2, Person 2, p2@gmail.com, 0400 000 002");
 
             Student studentWithInfo = new Student(
-                "The Other Student",
-                "The Other Program",
-                "The Other Date",
-                "Person B",
-                "pb@gmail.com",
+                "ID 2",
+                "Program 2",
+                "Date 2",
+                "Person 2",
+                "p2@gmail.com",
                 "0400 000 002"
                 );
 
             C.Expected("" +
                 "[Student]\n" +
-                "StudentID: The Other Student\n" +
-                "Program: The Other Program\n" +
-                "Date Register: The Other Date\n" +
+                "StudentID: ID 2\n" +
+                "Program: Program 2\n" +
+                "Date Register: Date 2\n" +
                 "[Person]\n" +
-                "Name: Person B\n" +
-                "Email: pb@gmail.com\n" +
+                "Name: Person 2\n" +
+                "Email: p2@gmail.com\n" +
                 "Phone Number: 0400 000 002\n" +
-                "\n" +
-                "All others: Not provided" +
                 "");
             C.Actual(studentWithInfo.ToString());
 
             C.Next();
 
-            C.Title("> create a same object studentWithInfoSame (The Other Student, The Other Program, The Other Date)");
-            Student studentWithInfoSame = new Student("The Other Student", "The Other Program", "The Other Date", "Person B", "pb@gmail.com", "0400 000 002");
+            C.Title("> create a same object using same information as studentWithInfo: ID 2, Program 2, Date 2, Person 2, p2@gmail.com, 0400 000 002");
+            C.Title("> studentWithInfoSame: ID 2, Program 2, Date 2, Person 2, p2@gmail.com, 0400 000 002");
+
+
+            Student studentWithInfoSame = new Student(
+                "ID 2",
+                "Program 2",
+                "Date 2",
+                "Person 2",
+                "p2@gmail.com",
+                "0400 000 002"
+                );
+
             C.Expected("" +
                 "[Student]\n" +
-                "StudentID: The Other Student\n" +
-                "Program: The Other Program\n" +
-                "Date Register: The Other Date\n" +
+                "StudentID: ID 2\n" +
+                "Program: Program 2\n" +
+                "Date Register: Date 2\n" +
                 "[Person]\n" +
-                "Name: Person B\n" +
-                "Email: pb@gmail.com\n" +
+                "Name: Person 2\n" +
+                "Email: p2@gmail.com\n" +
                 "Phone Number: 0400 000 002\n" +
-                "\n" +
-                "All others: Not provided" +
                 "");
             C.Actual(studentWithInfoSame.ToString());
 

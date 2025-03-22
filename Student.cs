@@ -29,7 +29,7 @@ namespace PRG547ASSIGNMENT1
         public Enrollment Enrollment { get; set; }
 
         /// <summary>
-        /// All arg constructor
+        /// All Arg Student
         /// </summary>
         /// <param name="studentID">Student ID</param>
         /// <param name="program">Program</param>
@@ -37,8 +37,8 @@ namespace PRG547ASSIGNMENT1
         /// <param name="name">Name</param>
         /// <param name="email">Email Address</param>
         /// <param name="phoneNumber">Phone Number</param>
-        /// <param name="address">Person Address</param>
-        /// <param name="enrollment">Enrollment</param>
+        /// <param name="address">Address Class</param>
+        /// <param name="enrollment">Enrollment Class</param>
         public Student(
             string studentID,
             string program,
@@ -61,11 +61,25 @@ namespace PRG547ASSIGNMENT1
         }
 
         /// <summary>
-        /// All arg constructor
+        /// Partial Arg Student - Person only
         /// </summary>
-        /// <param name="studentID">Student ID</param>
-        /// <param name="program">Program</param>
-        /// <param name="dateRegistered">Date Registered</param>
+        /// <param name="name">Name</param>
+        /// <param name="email">Email Address</param>
+        /// <param name="phoneNumber">Phone Number</param>
+        public Student(string name, string email, string phoneNumber) : base(name, email, phoneNumber)
+        {
+            StudentID = DEF_STUDENT_ID;
+            Program = DEF_PROGRAM;
+            DateRegistered = DEF_DATE_REGISTERED;
+            base.Name = name;
+            base.Email = email;
+            base.PhoneNumber = phoneNumber;
+            Enrollment = new Enrollment();
+        }
+
+        /// <summary>
+        /// Partial Arg Student - Person and student info
+        /// </summary>
         /// <param name="name">Name</param>
         /// <param name="email">Email Address</param>
         /// <param name="phoneNumber">Phone Number</param>
@@ -80,61 +94,69 @@ namespace PRG547ASSIGNMENT1
         {
             StudentID = studentID;
             Program = program;
-            DateRegistered = dateRegistered;
+            DateRegistered = name;
             base.Name = name;
             base.Email = email;
             base.PhoneNumber = phoneNumber;
+            Enrollment = new Enrollment();
         }
 
         /// <summary>
-        /// Partial arg constructor
+        /// Partial Arg Student - Person and student info and enrollment
         /// </summary>
+        /// <param name="studentID">Student ID</param>
+        /// <param name="program">Program</param>
+        /// <param name="dateRegistered">Date Registered</param>
         /// <param name="name">Name</param>
         /// <param name="email">Email Address</param>
         /// <param name="phoneNumber">Phone Number</param>
-        public Student(string name, string email, string phoneNumber) : base(name, email, phoneNumber)
+        /// <param name="enrollment">Enrollment Class</param>
+        public Student(
+            string studentID,
+            string program,
+            string dateRegistered,
+            string name,
+            string email,
+            string phoneNumber,
+            Enrollment enrollment
+            ) : base(name, email, phoneNumber)
         {
-            StudentID = DEF_STUDENT_ID;
-            Program = DEF_PROGRAM;
-            DateRegistered = DEF_DATE_REGISTERED;
-            base.Name = name;
-            base.Email = email;
-            base.PhoneNumber = phoneNumber;
-        }
-
-        /// <summary>
-        /// Partial arg constructor
-        /// </summary>
-        /// <param name="name">Name</param>
-        /// <param name="email">Email Address</param>
-        /// <param name="phoneNumber">Phone Number</param>
-        public Student(string name, string email, string phoneNumber, Address address) : base(name, email, phoneNumber, address)
-        {
-            StudentID = DEF_STUDENT_ID;
-            Program = DEF_PROGRAM;
-            DateRegistered = DEF_DATE_REGISTERED;
-            base.Name = name;
-            base.Email = email;
-            base.PhoneNumber = phoneNumber;
-            base.Address = address;
-        }
-
-        /// <summary>
-        /// Partial arg constructor
-        /// </summary>
-        /// <param name="name">Name</param>
-        /// <param name="email">Email Address</param>
-        /// <param name="phoneNumber">Phone Number</param>
-        /// <param name="enrollment">Enrollment</param>
-        public Student(string name, string email, string phoneNumber, Enrollment enrollment) : base(name, email, phoneNumber)
-        {
-            StudentID = DEF_STUDENT_ID;
-            Program = DEF_PROGRAM;
-            DateRegistered = DEF_DATE_REGISTERED;
+            StudentID = studentID;
+            Program = program;
+            DateRegistered = name;
             base.Name = name;
             base.Email = email;
             base.PhoneNumber = phoneNumber;
             Enrollment = enrollment;
+        }
+
+        /// <summary>
+        /// Partial Arg Student - Person and student info and address
+        /// </summary>
+        /// <param name="studentID">Student ID</param>
+        /// <param name="program">Program</param>
+        /// <param name="dateRegistered">Date Registered</param>
+        /// <param name="name">Name</param>
+        /// <param name="email">Email Address</param>
+        /// <param name="phoneNumber">Phone Number</param>
+        /// <param name="address">Address Class</param>
+        public Student(
+            string studentID,
+            string program,
+            string dateRegistered,
+            string name,
+            string email,
+            string phoneNumber,
+            Address address
+            ) : base(name, email, phoneNumber)
+        {
+            StudentID = studentID;
+            Program = program;
+            DateRegistered = name;
+            base.Name = name;
+            base.Email = email;
+            base.PhoneNumber = phoneNumber;
+            Address = address;
         }
 
         /// <summary>

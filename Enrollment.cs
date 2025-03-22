@@ -16,6 +16,7 @@ namespace PRG547ASSIGNMENT1
         public string Grade { get; set; }
         public string Semester { get; set; }
         public Subject Subject { get; set; }
+
         public Enrollment(string dateEnrolled, string grade, string semester, Subject subject)
         {
 

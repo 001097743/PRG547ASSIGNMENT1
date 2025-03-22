@@ -14,6 +14,13 @@ namespace PRG547ASSIGNMENT1
 
         public Address Address { get; set; }
 
+        /// <summary>
+        /// All Arg Person
+        /// </summary>
+        /// <param name="name">Name</param>
+        /// <param name="email">Email</param>
+        /// <param name="phoneNumber">Phone Number</param>
+        /// <param name="address">Address Class</param>
         public Person(string name, string email, string phoneNumber, Address address)
         {
             Name = name;
@@ -21,6 +28,13 @@ namespace PRG547ASSIGNMENT1
             PhoneNumber = phoneNumber;
             Address = address;
         }
+
+        /// <summary>
+        /// Partial Arg Person
+        /// </summary>
+        /// <param name="name">Name</param>
+        /// <param name="email">Email</param>
+        /// <param name="phoneNumber">Phone Number</param>
         public Person(string name, string email, string phoneNumber) : this(name, email, phoneNumber, new Address()) {}
 
         public override string ToString()
