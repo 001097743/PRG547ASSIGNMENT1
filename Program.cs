@@ -13,6 +13,17 @@ namespace PRG547ASSIGNMENT1
     {
         static void Main(string[] args)
         {
+            int a = 1,
+                b = 2;
+            int c;
+            c = (a+b) / 2;
+            Console.WriteLine(c);
+
+           
+            Console.WriteLine(-1);
+
+            C.Next();
+            Environment.Exit(0);
 
             C.Title("[testing getters, getters, ToString, GetHashCode]");
 

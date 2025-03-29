@@ -115,8 +115,8 @@
             <summary>
             Overload operator !=
             </summary>
-            <param name="a"></param>
-            <param name="b"></param>
+            <param name="a">Object for comparing</param>
+            <param name="b">Object for comparing</param>
             <returns>bool</returns>
         </member>
         <member name="M:PRG547ASSIGNMENT1.Student.GetHashCode">
@@ -124,6 +124,13 @@
             Override GetHashCode()
             </summary>
             <returns>int</returns>
+        </member>
+        <member name="M:PRG547ASSIGNMENT1.Student.CompareTo(PRG547ASSIGNMENT1.Student)">
+            <summary>
+            Implement Icomparable interface
+            </summary>
+            <param name="student">Object for comparing</param>
+            <returns></returns>
         </member>
     </members>
 </doc>

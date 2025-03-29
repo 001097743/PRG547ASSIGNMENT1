@@ -12,7 +12,7 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace PRG547ASSIGNMENT1
 {
-    internal class Student : Person
+    internal class Student : Person, IComparable<Student>
     {
         const string DEF_STUDENT_ID = "Not provided";
         const string DEF_PROGRAM = "Not provided";
@@ -216,8 +216,8 @@ namespace PRG547ASSIGNMENT1
         /// <summary>
         /// Overload operator !=
         /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
+        /// <param name="a">Object for comparing</param>
+        /// <param name="b">Object for comparing</param>
         /// <returns>bool</returns>
         public static bool operator !=(Student a, Student b)
         {
@@ -233,5 +233,16 @@ namespace PRG547ASSIGNMENT1
             return StudentID.GetHashCode();
         }
 
+        /// <summary>
+        /// Implement Icomparable interface
+        /// </summary>
+        /// <param name="student">Object for comparing</param>
+        /// <returns></returns>
+        public int CompareTo(Student student) 
+        {
+            if (StudentID.GetHashCode() == student.StudentID.GetHashCode()) return 0;
+            if (StudentID.GetHashCode() > student.StudentID.GetHashCode()) return 1;
+            return -1;
+        }
     }
 }

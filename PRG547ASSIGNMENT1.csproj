@@ -57,6 +57,7 @@
     </Compile>
     <Compile Include="Student.cs" />
     <Compile Include="Subject.cs" />
+    <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
