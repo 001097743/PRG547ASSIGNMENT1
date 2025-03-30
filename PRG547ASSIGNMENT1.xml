@@ -132,5 +132,45 @@
             <param name="student">Object for comparing</param>
             <returns></returns>
         </member>
+        <member name="M:PRG547ASSIGNMENT1.Utility.LinearSeachArray``1(``0[],``0)">
+            <summary>
+            Linear search an array of any type
+            </summary>
+            <typeparam name="T">Type</typeparam>
+            <param name="array">Array to search in</param>
+            <param name="target">Search target</param>
+            <returns>Index of target in arry if found, -1 if not found</returns>
+        </member>
+        <member name="M:PRG547ASSIGNMENT1.Utility.BinarySearchArray``1(``0[],``0)">
+            <summary>
+            Binary search an array of any type
+            </summary>
+            <typeparam name="T">Type</typeparam>
+            <param name="array">Array to search in</param>
+            <param name="target">Search target</param>
+            <returns>Index of target in arry if found, -1 if not found</returns>
+        </member>
+        <member name="M:PRG547ASSIGNMENT1.Utility.SortAsc``1(``0[])">
+            <summary>
+            Sort an array of any type in ascending order
+            </summary>
+            <typeparam name="T">Type</typeparam>
+            <param name="array">Array to sort</param>
+        </member>
+        <member name="M:PRG547ASSIGNMENT1.Utility.SortDesc``1(``0[])">
+            <summary>
+            Sort an array of any type in descending order
+            </summary>
+            <typeparam name="T">Type</typeparam>
+            <param name="array">Array to sort</param>
+        </member>
+        <member name="M:PRG547ASSIGNMENT1.Utility.Sort``1(``0[],PRG547ASSIGNMENT1.Utility.SortOrder)">
+            <summary>
+            Sort an array of any type
+            </summary>
+            <typeparam name="T">Type</typeparam>
+            <param name="array">Array to sort</param>
+            <param name="order">Enum sort order</param>
+        </member>
     </members>
 </doc>

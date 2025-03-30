@@ -56,12 +56,15 @@ namespace PRG547ASSIGNMENT1.TEST
         {
             Student[] _shuffle = (Student[])Students.Clone();
             Shuffle(_shuffle);
+
             TestContext.WriteLine("Student IDs after shuffle:");
             foreach (Student _s in _shuffle)
             {
                 TestContext.WriteLine(_s.StudentID);
             }
+
             Utility.SortAsc(_shuffle);
+
             for (int i = 0; i < Students.Length; i++)
             {
                 Assert.IsTrue(Students[i].Equals(_shuffle[i]));
@@ -72,12 +75,15 @@ namespace PRG547ASSIGNMENT1.TEST
         {
             Student[] _shuffle = (Student[])Students.Clone();
             Shuffle(_shuffle);
+
             TestContext.WriteLine("Student IDs after shuffle:");
             foreach (Student _s in _shuffle)
             {
                 TestContext.WriteLine(_s.StudentID);
             }
+
             Utility.SortDesc(_shuffle);
+
             for (int i = 0; i < Students.Length; i++)
             {
                 Assert.IsTrue(Students[i].Equals(_shuffle[Students.Length - 1 - i]));

@@ -10,6 +10,13 @@ namespace PRG547ASSIGNMENT1
     {
         public enum SortOrder { ASC, DESC }
 
+        /// <summary>
+        /// Linear search an array of any type
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="array">Array to search in</param>
+        /// <param name="target">Search target</param>
+        /// <returns>Index of target in arry if found, -1 if not found</returns>
         public static int LinearSeachArray<T>(T[] array, T target) where T : IComparable<T>
         {
             int i = 0;
@@ -29,6 +36,13 @@ namespace PRG547ASSIGNMENT1
 
         }
 
+        /// <summary>
+        /// Binary search an array of any type
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="array">Array to search in</param>
+        /// <param name="target">Search target</param>
+        /// <returns>Index of target in arry if found, -1 if not found</returns>
         public static int BinarySearchArray<T>(T[] array, T target) where T : IComparable<T>
         {
             int min = 0;
@@ -56,17 +70,33 @@ namespace PRG547ASSIGNMENT1
         }
 
 
-
+        /// <summary>
+        /// Sort an array of any type in ascending order
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="array">Array to sort</param>
         public static void SortAsc<T>(T[] array) where T : IComparable<T>
         {
             Sort<T>(array, SortOrder.ASC);
         }
+
+        /// <summary>
+        /// Sort an array of any type in descending order
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="array">Array to sort</param>
         public static void SortDesc<T>(T[] array) where T : IComparable<T>
         {
             Sort<T>(array, SortOrder.DESC);
 
         }
 
+        /// <summary>
+        /// Sort an array of any type
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="array">Array to sort</param>
+        /// <param name="order">Enum sort order</param>
         public static void Sort<T>(T[] array, SortOrder order) where T : IComparable<T>
         {
             int n = array.Length;
