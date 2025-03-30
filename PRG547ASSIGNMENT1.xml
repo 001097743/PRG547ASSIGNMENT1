@@ -94,7 +94,7 @@
             <param name="obj">Object for comparing</param>
             <returns>bool</returns>
         </member>
-        <member name="M:PRG547ASSIGNMENT1.Student.Equals(System.Object,System.Object)">
+        <member name="M:PRG547ASSIGNMENT1.Student.Equals``1(System.Object,System.Object)">
             <summary>
             Override static Equals()
             </summary>

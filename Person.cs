@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PRG547ASSIGNMENT1
 {
-    internal class Person
+    class Person
     {
         public string Name { get; set; }
         public string Email { get; set; }

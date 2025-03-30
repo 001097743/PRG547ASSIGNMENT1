@@ -6,16 +6,27 @@ using System.Threading.Tasks;
 
 namespace PRG547ASSIGNMENT1
 {
-    internal class Utility
+    class Utility
     {
         public enum SortOrder { ASC, DESC }
+
         public static int LinearSeachArray<T>(T[] array, T target) where T : IComparable<T>
         {
-            for (int i = 0; i < array.Length; i++)
+            int i = 0;
+            bool found = false;
+            while (!found && i < array.Length)
             {
-                if (target.CompareTo(array[i]) == 0) { return i; } else { i++; }
+                if (target.CompareTo(array[i]) == 0)
+                {
+                    found = true;
+                }
+                else
+                {
+                    i++;
+                }
             }
-            return -1;
+            return i < array.Length ? i : -1;
+
         }
 
         public static int BinarySearchArray<T>(T[] array, T target) where T : IComparable<T>
@@ -23,7 +34,6 @@ namespace PRG547ASSIGNMENT1
             int min = 0;
             int max = array.Length - 1;
             int mid;
-
             do
             {
                 mid = (min + max) / 2;
@@ -34,13 +44,14 @@ namespace PRG547ASSIGNMENT1
 
                 if (target.CompareTo(array[mid]) > 0)
                 {
-                    min = mid++;
+                    min = mid + 1;
                 }
                 else
                 {
-                    max = mid--;
+                    max = mid - 1;
                 }
             } while (min <= max);
+
             return -1;
         }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PRG547ASSIGNMENT1
 {
-    internal class Address
+    class Address
     {
         const string DEF_STREET_NUM = "Not provided";
         const string DEF_STREET_NAME = "Not provided";

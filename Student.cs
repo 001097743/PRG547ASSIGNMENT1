@@ -12,7 +12,7 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace PRG547ASSIGNMENT1
 {
-    internal class Student : Person, IComparable<Student>
+    class Student : Person, IComparable<Student>
     {
         const string DEF_STUDENT_ID = "Not provided";
         const string DEF_PROGRAM = "Not provided";
@@ -94,7 +94,7 @@ namespace PRG547ASSIGNMENT1
         {
             StudentID = studentID;
             Program = program;
-            DateRegistered = name;
+            DateRegistered = dateRegistered;
             base.Name = name;
             base.Email = email;
             base.PhoneNumber = phoneNumber;
@@ -123,7 +123,7 @@ namespace PRG547ASSIGNMENT1
         {
             StudentID = studentID;
             Program = program;
-            DateRegistered = name;
+            DateRegistered = dateRegistered;
             base.Name = name;
             base.Email = email;
             base.PhoneNumber = phoneNumber;
@@ -152,7 +152,7 @@ namespace PRG547ASSIGNMENT1
         {
             StudentID = studentID;
             Program = program;
-            DateRegistered = name;
+            DateRegistered = dateRegistered;
             base.Name = name;
             base.Email = email;
             base.PhoneNumber = phoneNumber;
@@ -195,7 +195,7 @@ namespace PRG547ASSIGNMENT1
         /// <param name="a">Object for comparing</param>
         /// <param name="b">Object for comparing</param>
         /// <returns>bool</returns>
-        public static bool Equals(object a, object b)
+        public static bool Equals<T>(object a, object b)
         {
             if (a == b) return true;
             return !(a == null || b == null) && a.Equals(b);
@@ -238,10 +238,10 @@ namespace PRG547ASSIGNMENT1
         /// </summary>
         /// <param name="student">Object for comparing</param>
         /// <returns></returns>
-        public int CompareTo(Student student) 
+        public int CompareTo(Student student)
         {
-            if (StudentID.GetHashCode() == student.StudentID.GetHashCode()) return 0;
-            if (StudentID.GetHashCode() > student.StudentID.GetHashCode()) return 1;
+            if (StudentID == student.StudentID) return 0;
+            if (this.StudentID.CompareTo(student.StudentID) > 0 ) return 1;
             return -1;
         }
     }

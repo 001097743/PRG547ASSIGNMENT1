@@ -7,7 +7,7 @@ using System.Xml.Linq;
 
 namespace PRG547ASSIGNMENT1
 {
-    internal class Enrollment
+    class Enrollment
     {
         const string DEF_DATE_ENROLLED = "Not provided";
         const string DEF_GRADE = "Not provided";

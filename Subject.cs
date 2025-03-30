@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PRG547ASSIGNMENT1
 {
-    internal class Subject
+    class Subject
     {
         const string DEF_SUBJECTCODE = "Not provided";
         const string DEF_SUBJECTNAME = "Not provided";

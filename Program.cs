@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PRG547ASSIGNMENT1
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
