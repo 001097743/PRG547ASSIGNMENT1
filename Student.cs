@@ -9,6 +9,7 @@ using System.Threading;
 using System.Security.Cryptography.X509Certificates;
 
 #pragma warning disable
+#pragma warning enable
 
 namespace PRG547ASSIGNMENT1
 {
@@ -61,45 +62,27 @@ namespace PRG547ASSIGNMENT1
         }
 
         /// <summary>
-        /// Partial Arg Student - Person only
+        /// Partial Arg Student - Person info only
         /// </summary>
         /// <param name="name">Name</param>
         /// <param name="email">Email Address</param>
         /// <param name="phoneNumber">Phone Number</param>
-        public Student(string name, string email, string phoneNumber) : base(name, email, phoneNumber)
-        {
-            StudentID = DEF_STUDENT_ID;
-            Program = DEF_PROGRAM;
-            DateRegistered = DEF_DATE_REGISTERED;
-            base.Name = name;
-            base.Email = email;
-            base.PhoneNumber = phoneNumber;
-            Enrollment = new Enrollment();
-        }
+        //public Student(string name, string email, string phoneNumber) : base(name, email, phoneNumber)
+        public Student(string name, string email, string phoneNumber)
+            : this(DEF_STUDENT_ID, DEF_PROGRAM, DEF_DATE_REGISTERED, name, email, phoneNumber, new Address(), new Enrollment()) { }
+
 
         /// <summary>
         /// Partial Arg Student - Person and student info
         /// </summary>
+        /// <param name="studentID">Student ID</param>
+        /// <param name="program">Program</param>
+        /// <param name="dateRegistered">Date Registered</param>
         /// <param name="name">Name</param>
         /// <param name="email">Email Address</param>
         /// <param name="phoneNumber">Phone Number</param>
-        public Student(
-            string studentID,
-            string program,
-            string dateRegistered,
-            string name,
-            string email,
-            string phoneNumber
-            ) : base(name, email, phoneNumber)
-        {
-            StudentID = studentID;
-            Program = program;
-            DateRegistered = dateRegistered;
-            base.Name = name;
-            base.Email = email;
-            base.PhoneNumber = phoneNumber;
-            Enrollment = new Enrollment();
-        }
+        public Student(string studentID, string program, string dateRegistered, string name, string email, string phoneNumber)
+            : this(studentID, program, dateRegistered, name, email, phoneNumber, new Address(), new Enrollment()) { }
 
         /// <summary>
         /// Partial Arg Student - Person and student info and enrollment
@@ -111,24 +94,9 @@ namespace PRG547ASSIGNMENT1
         /// <param name="email">Email Address</param>
         /// <param name="phoneNumber">Phone Number</param>
         /// <param name="enrollment">Enrollment Class</param>
-        public Student(
-            string studentID,
-            string program,
-            string dateRegistered,
-            string name,
-            string email,
-            string phoneNumber,
-            Enrollment enrollment
-            ) : base(name, email, phoneNumber)
-        {
-            StudentID = studentID;
-            Program = program;
-            DateRegistered = dateRegistered;
-            base.Name = name;
-            base.Email = email;
-            base.PhoneNumber = phoneNumber;
-            Enrollment = enrollment;
-        }
+
+        public Student(string studentID, string program, string dateRegistered, string name, string email, string phoneNumber, Enrollment enrollment)
+            : this(studentID, program, dateRegistered, name, email, phoneNumber, new Address(), enrollment) { }
 
         /// <summary>
         /// Partial Arg Student - Person and student info and address
@@ -140,24 +108,8 @@ namespace PRG547ASSIGNMENT1
         /// <param name="email">Email Address</param>
         /// <param name="phoneNumber">Phone Number</param>
         /// <param name="address">Address Class</param>
-        public Student(
-            string studentID,
-            string program,
-            string dateRegistered,
-            string name,
-            string email,
-            string phoneNumber,
-            Address address
-            ) : base(name, email, phoneNumber)
-        {
-            StudentID = studentID;
-            Program = program;
-            DateRegistered = dateRegistered;
-            base.Name = name;
-            base.Email = email;
-            base.PhoneNumber = phoneNumber;
-            Address = address;
-        }
+        public Student(string studentID, string program, string dateRegistered, string name, string email, string phoneNumber, Address address)
+        : this(studentID, program, dateRegistered, name, email, phoneNumber, address, new Enrollment()) { }
 
         /// <summary>
         /// Override ToString()
@@ -241,7 +193,7 @@ namespace PRG547ASSIGNMENT1
         public int CompareTo(Student student)
         {
             if (StudentID == student.StudentID) return 0;
-            if (this.StudentID.CompareTo(student.StudentID) > 0 ) return 1;
+            if (this.StudentID.CompareTo(student.StudentID) > 0) return 1;
             return -1;
         }
     }

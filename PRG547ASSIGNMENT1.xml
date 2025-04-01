@@ -42,7 +42,7 @@
         </member>
         <member name="M:PRG547ASSIGNMENT1.Student.#ctor(System.String,System.String,System.String)">
             <summary>
-            Partial Arg Student - Person only
+            Partial Arg Student - Person info only
             </summary>
             <param name="name">Name</param>
             <param name="email">Email Address</param>
@@ -52,6 +52,9 @@
             <summary>
             Partial Arg Student - Person and student info
             </summary>
+            <param name="studentID">Student ID</param>
+            <param name="program">Program</param>
+            <param name="dateRegistered">Date Registered</param>
             <param name="name">Name</param>
             <param name="email">Email Address</param>
             <param name="phoneNumber">Phone Number</param>
