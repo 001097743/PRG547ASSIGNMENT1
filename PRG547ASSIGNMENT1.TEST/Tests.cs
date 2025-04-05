@@ -5,12 +5,17 @@ namespace PRG547ASSIGNMENT1.TEST
     public class Tests
     {
         private static readonly string[] NAMES = ["Liam", "Noah", "Oliver", "James", "Elijah", "Mateo", "Theodore", "Henry", "Lucas", "William", "Olivia", "Emma", "Charlotte", "Amelia", "Ava", "Mia", "Sophia", "Isla", "Harper", "Luna"];
-        private static int LENGTH = 10;
-        private Student[] Students = new Student[LENGTH];
+        private static readonly int LENGTH = 10;
+        private readonly Student[] Students = new Student[LENGTH];
 
         private readonly Student _toBeFound = new("ID 5", "The Program", "The Date", "The Name", "The Email", "The Phone");
         private readonly Student _notToBeFound = new("ID 50", "The Program", "The Date", "The Name", "The Email", "The Phone");
 
+        /// <summary>
+        /// The method to shufful an array for testing
+        /// </summary>
+        /// <typeparam name="T">Object type</typeparam>
+        /// <param name="array">Array to shuffle</param>
         private static void Shuffle<T>(T[] array)
         {
             Random random = new();
@@ -18,6 +23,9 @@ namespace PRG547ASSIGNMENT1.TEST
             Array.Sort(keys, array);
         }
 
+        /// <summary>
+        /// Create an array of Student objects
+        /// </summary>
         [SetUp]
         public void Setup()
         {
@@ -35,22 +43,25 @@ namespace PRG547ASSIGNMENT1.TEST
         {
             Assert.GreaterOrEqual(Utility.LinearSeachArray<Student>(Students, _toBeFound), 0);
         }
+
         [Test]
         public void TestLinerSearchNotFound()
         {
-
             Assert.Negative(Utility.LinearSeachArray<Student>(Students, _notToBeFound));
         }
+
         [Test]
         public void TestBinarySearchFound()
         {
             Assert.GreaterOrEqual(Utility.BinarySearchArray<Student>(Students, _toBeFound), 0);
         }
+
         [Test]
         public void TestBinarySearchNotFound()
         {
             Assert.Negative(Utility.BinarySearchArray<Student>(Students, _notToBeFound));
         }
+
         [Test]
         public void TestSortAsc()
         {
@@ -70,6 +81,7 @@ namespace PRG547ASSIGNMENT1.TEST
                 Assert.IsTrue(Students[i].Equals(_shuffle[i]));
             }
         }
+
         [Test]
         public void TestSortDesc()
         {

@@ -167,13 +167,5 @@
             <typeparam name="T">Type</typeparam>
             <param name="array">Array to sort</param>
         </member>
-        <member name="M:PRG547ASSIGNMENT1.Utility.Sort``1(``0[],PRG547ASSIGNMENT1.Utility.SortOrder)">
-            <summary>
-            Sort an array of any type
-            </summary>
-            <typeparam name="T">Type</typeparam>
-            <param name="array">Array to sort</param>
-            <param name="order">Enum sort order</param>
-        </member>
     </members>
 </doc>

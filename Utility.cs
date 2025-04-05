@@ -77,28 +77,6 @@ namespace PRG547ASSIGNMENT1
         /// <param name="array">Array to sort</param>
         public static void SortAsc<T>(T[] array) where T : IComparable<T>
         {
-            Sort<T>(array, SortOrder.ASC);
-        }
-
-        /// <summary>
-        /// Sort an array of any type in descending order
-        /// </summary>
-        /// <typeparam name="T">Type</typeparam>
-        /// <param name="array">Array to sort</param>
-        public static void SortDesc<T>(T[] array) where T : IComparable<T>
-        {
-            Sort<T>(array, SortOrder.DESC);
-
-        }
-
-        /// <summary>
-        /// Sort an array of any type
-        /// </summary>
-        /// <typeparam name="T">Type</typeparam>
-        /// <param name="array">Array to sort</param>
-        /// <param name="order">Enum sort order</param>
-        public static void Sort<T>(T[] array, SortOrder order) where T : IComparable<T>
-        {
             int n = array.Length;
             T temp;
             for (int i = 0; i < n - 1; i++)
@@ -113,10 +91,30 @@ namespace PRG547ASSIGNMENT1
                     }
                 }
             }
-            if (order == SortOrder.DESC)
+        }
+
+        /// <summary>
+        /// Sort an array of any type in descending order
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="array">Array to sort</param>
+        public static void SortDesc<T>(T[] array) where T : IComparable<T>
+        {
+            int n = array.Length;
+            T temp;
+            for (int i = 0; i < n - 1; i++)
             {
-                Array.Reverse(array);
+                for (int j = 0; j < n - i - 1; j++)
+                {
+                    if (array[j].CompareTo(array[j + 1]) < 0)
+                    {
+                        temp = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = temp;
+                    }
+                }
             }
+
         }
     }
 }
