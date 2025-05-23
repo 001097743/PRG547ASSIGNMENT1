@@ -8,8 +8,6 @@ namespace PRG547ASSIGNMENT1
 {
     class Utility
     {
-        public enum SortOrder { ASC, DESC }
-
         /// <summary>
         /// Linear search an array of any type
         /// </summary>
@@ -21,19 +19,27 @@ namespace PRG547ASSIGNMENT1
         {
             int i = 0;
             bool found = false;
-            while (!found && i < array.Length)
-            {
-                if (target.CompareTo(array[i]) == 0)
-                {
-                    found = true;
-                }
-                else
-                {
-                    i++;
-                }
-            }
-            return i < array.Length ? i : -1;
 
+            try
+            {
+                while (!found && i < array.Length)
+                {
+                    if (target.CompareTo(array[i]) == 0)
+                    {
+                        found = true;
+                    }
+                    else
+                    {
+                        i++;
+                    }
+                }
+                return i < array.Length ? i : -1;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message.ToString());
+                throw e;
+            }
         }
 
         /// <summary>
@@ -48,25 +54,33 @@ namespace PRG547ASSIGNMENT1
             int min = 0;
             int max = array.Length - 1;
             int mid;
-            do
+
+            try
             {
-                mid = (min + max) / 2;
-                if (target.CompareTo(array[mid]) == 0)
+                do
                 {
-                    return mid;
-                }
+                    mid = (min + max) / 2;
+                    if (target.CompareTo(array[mid]) == 0)
+                    {
+                        return mid;
+                    }
 
-                if (target.CompareTo(array[mid]) > 0)
-                {
-                    min = mid + 1;
-                }
-                else
-                {
-                    max = mid - 1;
-                }
-            } while (min <= max);
-
-            return -1;
+                    if (target.CompareTo(array[mid]) > 0)
+                    {
+                        min = mid + 1;
+                    }
+                    else
+                    {
+                        max = mid - 1;
+                    }
+                } while (min <= max);
+                return -1;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message.ToString());
+                throw e;
+            }
         }
 
 

@@ -13,6 +13,28 @@ namespace PRG547ASSIGNMENT1
     {
         static void Main(string[] args)
         {
+            int _length = 5;
+            Student[] Students = new Student[_length];
+            for (int i = 0; i < _length; i++)
+            {
+                Students[i] = new Student($"ID {i}", $"Program {i}", $"20250301", $"Student #{i}", $"student.id{i}@tafesa.com", "+61400000000");
+            }
+            Student _the_student = new Student("ID 1", "The Program", "The Date", "The Name", "The Email", "The Phone");
+
+            C.Title("[Debug]");
+            C.Title("> Array of Student objects [Students] with ID 0, 1, 2, 3, 4 have been created");
+            C.Title("> Student object [_the_student] with ID 1 has been created for searching");
+            C.Title("> Student object with ID 1 has been created for searching");
+            C.Title("> [_the_student] is in [Students], the index of [_the_student] in array of [Students] should be 1");
+            C.Expected("1");
+            C.Actual(Utility.BinarySearchArray(Students, _the_student).ToString());
+            Environment.Exit(0);
+
+
+
+
+
+
             C.Title("[testing getters, getters, ToString, GetHashCode]");
 
             C.Title("> create object: studentNoInfo: Person 1, p1@gmail.com, 0400 000 001");
